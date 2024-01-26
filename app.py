@@ -12,14 +12,6 @@ def hello():
     return render_template("index.html")
 
 
-@app.route("/close", methods=["GET"])
-def close_window():
-    print('That\'s enough fishing for today.')
-    detector.stop()
-    close_application()
-    return 'Application closed successfully', 200
-
-
 @app.route('/start', methods=['POST'])
 def start_fishing():
     detector.start()  # Use the global instance of SoundDetector
@@ -45,10 +37,12 @@ def start_flask(**server_kwargs):
 
 
 if __name__ == "__main__":
+    # app.run() # Debug mode
+
     FlaskUI(
         app=app,
         server="flask",
         width=800,
-        height=350,
+        height=400,
         on_startup=lambda: print("Let's go fishing!"),
     ).run()

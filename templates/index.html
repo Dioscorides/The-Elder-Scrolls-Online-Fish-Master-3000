@@ -9,29 +9,57 @@
 <body class="dark">
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img src="{{ url_for('static', filename='svg/fish.svg') }}" width="40" height="32" class="icon"
-                 alt="Fish Icon">
-            <span class="fs-4 ms-3">Fish Master 3000</span>
-        </a>
+        <p class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <span class="fs-4 ms-3">The Elder Scrolls Online Fish Master 3000</span>
+        </p>
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="https://github.com/Dioscorides/The-Elder-Scrolls-Online-Fish-Master-3000"
-                                    class="nav-link">GitHub</a></li>
+            <li class="nav-item">
+                <a href="https://github.com/Dioscorides/The-Elder-Scrolls-Online-Fish-Master-3000" class="nav-link">
+                    GitHub
+                    <sup>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                             class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M10 1a2 2 0 0 1 2 2v4.8a.8.8 0 0 1-1.6 0V3.5L1.7 12.3a.8.8 0 1 1-1.1-1.1L10 1.5H5.2a.8.8 0 0 1 0-1.6h4.8z"/>
+                            <path fill-rule="evenodd"
+                                  d="M15 2.5a.5.5 0 0 1 .5.5v8a2 2 0 0 1-2 2h-8a.5.5 0 0 1 0-1h8a1 1 0 0 0 1-1v-8a.5.5 0 0 1 .5-.5z"/>
+                        </svg>
+                    </sup>
+                </a>
+            </li>
         </ul>
     </header>
 </div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-4">
-            <div class="form-switch">
+        <div class="col-4 text-center mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" class="fish-icon"
+                 viewBox="0 0 576 512">
+                <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                <path d="M180.5 141.5C219.7 108.5 272.6 80 336 80s116.3 28.5 155.5 61.5c39.1 33 66.9 72.4 81 99.8c4.7 9.2 4.7 20.1 0 29.3c-14.1 27.4-41.9 66.8-81 99.8C452.3 403.5 399.4 432 336 432s-116.3-28.5-155.5-61.5c-16.2-13.7-30.5-28.5-42.7-43.1L48.1 379.6c-12.5 7.3-28.4 5.3-38.7-4.9S-3 348.7 4.2 336.1L50 256 4.2 175.9c-7.2-12.6-5-28.4 5.3-38.6s26.1-12.2 38.7-4.9l89.7 52.3c12.2-14.6 26.5-29.4 42.7-43.1zM448 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+            </svg>
+            <div class="form-switch mt-3">
                 <input class="form-check-input" type="checkbox" id="toggleSwitch">
                 <label class="form-check-label" for="toggleSwitch">Start/Stop Fishing</label>
             </div>
-            <img src="{{ url_for('static', filename='svg/fish.svg') }}" width="80" height="80" class="fish-icon"
-                 alt="Fish Icon">
         </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-2 text-center">
+            <hr class="border-2 border-top"/>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-2">
+        <figure id="wild-quotes" class="text-center fixed-bottom">
+            <blockquote class="blockquote">
+                <p id="random-sentence"></p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+                <span id="random-philosopher"></span><cite> while thinking about fishing, allegedly.</cite>
+            </figcaption>
+        </figure>
     </div>
 </div>
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>

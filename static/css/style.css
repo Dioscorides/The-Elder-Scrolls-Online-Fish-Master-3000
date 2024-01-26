@@ -1,4 +1,13 @@
+a.nav-link.active {
+    color: #fff !important;
+    background-color: #6610f2 !important;
+    border-color: #6610f2 !important;
+}
 
+a.nav-link
+{
+    color: #ffffff !important;
+}
 
 form {
     display: flex;
@@ -8,10 +17,6 @@ form {
     flex-wrap: wrap; /* Optional: Allows the buttons to wrap to a new line if the window is too narrow */
 }
 
-button[name="close"] .icon {
-    filter: invert(1);
-}
-
 .btn {
     display: flex;
     flex-direction: column;
@@ -19,17 +24,41 @@ button[name="close"] .icon {
     justify-content: center;
 }
 
-.icon {
-    width: 30px;
-    height: 30px;
-}
-
 .fish-icon {
-    width: 80px; /* Adjust as needed */
-    height: 80px; /* Adjust as needed */
+    width: 80px;
+    height: 80px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    fill: #6610f2 !important;
+}
+
+
+.fade {
+    animation: fade 2s linear forwards;
+    visibility: visible;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: fade-out 2s linear forwards;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .shake {
