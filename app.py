@@ -1,10 +1,9 @@
 from flask import Flask
 from flask import render_template
-from flaskwebgui import FlaskUI, close_application
-from sound_detector import SoundDetector
+from flaskwebgui import FlaskUI
+from sound_detector import detector
 
 app = Flask(__name__)
-detector = SoundDetector('hooked.wav')
 
 
 @app.route("/")
@@ -14,13 +13,13 @@ def hello():
 
 @app.route('/start', methods=['POST'])
 def start_fishing():
-    detector.start()  # Use the global instance of SoundDetector
+    detector.start()  # Use the imported instance of SoundDetector
     return 'Started fishing'
 
 
 @app.route('/stop', methods=['POST'])
 def stop_fishing():
-    detector.stop()  # Use the global instance of SoundDetector
+    detector.stop()  # Use the imported instance of SoundDetector
     return 'Stopped fishing'
 
 

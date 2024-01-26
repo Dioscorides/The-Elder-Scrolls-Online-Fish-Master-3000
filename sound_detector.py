@@ -141,6 +141,7 @@ class SoundDetector:
         Raises:
             IOError: If the specified input device is not available or if there's an error starting the audio stream.
         """
+        self.is_running = True  # Set is_running to True before starting the audio stream
         audio_stream = pyaudio.PyAudio()
         stream = audio_stream.open(
             format=pyaudio.paFloat32,
@@ -164,6 +165,7 @@ class SoundDetector:
         print("Going home with today's catch")
 
 
+detector = SoundDetector('hooked.wav')
+
 if __name__ == "__main__":
-    detector = SoundDetector('hooked.wav')
     detector.start()
