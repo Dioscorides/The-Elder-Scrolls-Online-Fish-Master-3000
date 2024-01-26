@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-bs-theme="dark">
 <head>
-    <title>Fish Master 3000</title>
+    <title>The Elder Scrolls Online Fish Master 3000</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
-<form>
-    <button type="button" name="start">Start fishing!</button>
-    <button type="button" name="stop">Stop fishing</button>
-    <button type="button" name="close">Close application</button>
-</form>
+<body class="dark">
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="{{ url_for('static', filename='svg/fish.svg') }}" width="40" height="32" class="icon"
+                 alt="Fish Icon">
+            <span class="fs-4 ms-3">Fish Master 3000</span>
+        </a>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="https://github.com/Dioscorides/The-Elder-Scrolls-Online-Fish-Master-3000"
+                                    class="nav-link">GitHub</a></li>
+        </ul>
+    </header>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-switch">
+                <input class="form-check-input" type="checkbox" id="toggleSwitch">
+                <label class="form-check-label" for="toggleSwitch">Start/Stop Fishing</label>
+            </div>
+            <img src="{{ url_for('static', filename='svg/fish.svg') }}" width="80" height="80" class="fish-icon"
+                 alt="Fish Icon">
+        </div>
+    </div>
+</div>
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

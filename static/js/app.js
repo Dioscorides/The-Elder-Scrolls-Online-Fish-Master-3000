@@ -14,20 +14,28 @@ async function sendRequest(url = '', method = 'POST') {
         return data;
     } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
-        alert('There was a problem with the request. Please try again later.');
     }
 }
 
-document.querySelector('button[name="start"]').addEventListener('click', async function (event) {
-    event.preventDefault();
-    const data = await sendRequest('/start');
-    console.log(data);
-});
+document.getElementById('toggleSwitch').addEventListener('change', async function () {
+    console.log('Toggle switch changed')
+    const fishIcon = document.querySelector('.fish-icon');
+    console.log('Fish Icon:', fishIcon); // Log the fishIcon
+    if (this.checked) {
+        console.log('Toggle switch is checked')
+        console.log('Checked status:', this.checked); // Log the checked status
+        fishIcon.classList.add('shake');
+        const data = await sendRequest('/start');
 
-document.querySelector('button[name="stop"]').addEventListener('click', async function(event) {
-    event.preventDefault();
-    const data = await sendRequest('/stop');
-    console.log(data);
+        console.log(data);
+
+    } else {
+        console.log('Toggle switch is not checked')
+        console.log('Checked status:', this.checked); // Log the checked status
+        const data = await sendRequest('/stop');
+        console.log(data);
+        fishIcon.classList.remove('shake');
+    }
 });
 
 function closeWindow() {
@@ -40,20 +48,5 @@ function closeWindow() {
         })
         .catch(error => {
             console.error('There has been a problem with your fetch operation:', error);
-            alert('There was a problem with the request. Please try again later.');
         });
 }
-
-document.querySelector('button[name="close"]').addEventListener('click', closeWindow);
-
-document.addEventListener('DOMContentLoaded', function () {
-    let url = document.location;
-    let route = "/flaskwebgui-keep-server-alive";
-    let interval_request = 3 * 1000; //sec
-    function keep_alive_server() {
-        sendRequest(url + route, 'GET')
-            .then(data => console.log(data));
-    }
-
-    setInterval(keep_alive_server, interval_request);
-});
