@@ -55,6 +55,7 @@ class SoundDetector:
         self.time_of_last_detection = 0
         self.time_of_last_key_press = 0
         self.resampled_sound_data = resample(self.sound_data, self.audio_data_duration)
+        self.is_running = True
 
     # Constants
     AUDIO_DATA_DURATION_MULTIPLIER = 288
@@ -108,7 +109,7 @@ class SoundDetector:
         should continue or stop.
         """
         audio_data_array = np.frombuffer(incoming_audio_data, dtype=np.float32)
-        reshaped_sound_data = np.reshape(self.resampled_sound_data, (len(audio_data_array), ))
+        reshaped_sound_data = np.reshape(self.resampled_sound_data, (len(audio_data_array),))
         correlation = correlate(audio_data_array, reshaped_sound_data, mode='valid')
         max_correlation = np.max(correlation)
         if max_correlation > self.DETECTION_THRESHOLD and time.time() - self.time_of_last_detection > self.MINIMUM_INTERVAL_BETWEEN_DETECTIONS and time.time() - self.time_of_last_key_press > self.MINIMUM_INTERVAL_BETWEEN_KEY_PRESSES:
@@ -124,7 +125,7 @@ class SoundDetector:
             print(f"Paused for {long_delay_time} seconds")
             pyautogui.press(self.KEY_TO_PRESS)
             print(f"Fishing again!")
-        return incoming_audio_data, pyaudio.paContinue
+        return incoming_audio_data, pyaudio.paContinue if self.is_running else pyaudio.paComplete
 
     def start(self):
         """
@@ -140,23 +141,31 @@ class SoundDetector:
         Raises:
             IOError: If the specified input device is not available or if there's an error starting the audio stream.
         """
+        self.is_running = True  # Set is_running to True before starting the audio stream
         audio_stream = pyaudio.PyAudio()
         stream = audio_stream.open(
-            format=pyaudio.paFloat32, 
-            channels=1, 
+            format=pyaudio.paFloat32,
+            channels=1,
             rate=44100,
-            input=True, 
-            output=False, 
-            stream_callback=self.callback, 
+            input=True,
+            output=False,
+            stream_callback=self.callback,
             input_device_index=6
         )
         stream.start_stream()
         input("Gone fishing!")
+        while stream.is_active():
+            time.sleep(0.1)
         stream.stop_stream()
         stream.close()
         audio_stream.terminate()
 
+    def stop(self):  # Add this method
+        self.is_running = False
+        print("Going home with today's catch")
+
+
+detector = SoundDetector('hooked.wav')
 
 if __name__ == "__main__":
-    detector = SoundDetector('hooked.wav')
     detector.start()
