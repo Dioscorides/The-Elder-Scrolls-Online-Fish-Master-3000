@@ -1,0 +1,78 @@
+## Project information
+site_name: The Elder Scrolls Online Fish Master 3000
+site_url: https://github.com/Dioscorides/The-Elder-Scrolls-Online-Fish-Master-3000
+site_description: The Elder Scrolls Online Fish Master 3000 automates the fishing process in the game "The Elder Scrolls Online" by detecting the presence of a sound file (a fish biting the hook) in real-time audio data and simulating a keyboard key press when the sound file is detected.
+
+## Repository
+repo_name: The Elder Scrolls Online Fish Master 3000
+repo_url: https://github.com/Dioscorides/The-Elder-Scrolls-Online-Fish-Master-3000
+edit_uri: ''  #disables edit button
+
+## Configuration
+theme:
+  icon:
+    repo: fontawesome/brands/github
+  name: material
+  #logo: assets/images/logo.svg
+  #favicon: assets/images/favicon.png
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.tracking
+    - toc.follow
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - abbr
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - footnotes
+
+nav:
+  - Home: index.md
+
+## Social Media
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/Dioscorides
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+copyright: GNU General Public License v3.0; Giulio Menna –
+  <a href="#__consent">Change cookie settings</a>

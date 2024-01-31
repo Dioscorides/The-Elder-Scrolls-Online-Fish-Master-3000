@@ -1,0 +1,115 @@
+a.nav-link.active {
+    color: #fff !important;
+    background-color: #6610f2 !important;
+    border-color: #6610f2 !important;
+}
+
+a.nav-link
+{
+    color: #ffffff !important;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Optional: Adds some space between the buttons */
+    flex-wrap: wrap; /* Optional: Allows the buttons to wrap to a new line if the window is too narrow */
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fish-icon {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    fill: #6610f2 !important;
+}
+
+.form-check-input:checked {
+    background-color: #6610f2 !important;
+    border-color: #6610f2 !important;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(102, 16, 242, 0.5) !important;
+    border-color: #6610f2 !important;
+}
+
+.fade {
+    animation: fade 2s linear forwards;
+    visibility: visible;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: fade-out 2s linear forwards;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.shake {
+    animation: shake 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+    4% {
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg)
+    }
+    8%, 24% {
+        -webkit-transform: rotate(-18deg);
+        transform: rotate(-18deg)
+    }
+    12%, 28% {
+        -webkit-transform: rotate(18deg);
+        transform: rotate(18deg)
+    }
+    16% {
+        -webkit-transform: rotate(-22deg);
+        transform: rotate(-22deg)
+    }
+    20% {
+        -webkit-transform: rotate(22deg);
+        transform: rotate(22deg)
+    }
+    32% {
+        -webkit-transform: rotate(-12deg);
+        transform: rotate(-12deg)
+    }
+    36% {
+        -webkit-transform: rotate(12deg);
+        transform: rotate(12deg)
+    }
+    40%, to {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+}
