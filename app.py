@@ -42,6 +42,7 @@ if __name__ == "__main__":
         app=app,
         server="flask",
         width=800,
-        height=400,
+        height=435,
         on_startup=lambda: print("Let's go fishing!"),
+        on_shutdown=lambda: print("Well, that was fun!")
     ).run()

@@ -32,6 +32,19 @@ document.getElementById('toggleSwitch').addEventListener('change', async functio
     }
 });
 
+window.addEventListener('keydown', function(event) {
+    // Check if the pressed key combination is Shift + Alt + F
+    if (event.shiftKey && event.altKey && (event.key === 'f' || event.key === 'F')) {
+        // Get the toggleSwitch element
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        // Change the checked property to its opposite value
+        toggleSwitch.checked = !toggleSwitch.checked;
+
+        // Trigger the change event
+        toggleSwitch.dispatchEvent(new Event('change'));
+    }
+});
+
 // Array of sentences
 const sentences = [
   "\"Oh, fishing is such a blast! Nothing says 'fun' like sitting for hours, staring at water, and pretending it's a thrilling adventure.\"",
