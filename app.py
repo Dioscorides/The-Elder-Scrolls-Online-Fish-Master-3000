@@ -13,14 +13,26 @@ def hello():
 
 @app.route('/start', methods=['POST'])
 def start_fishing():
-    detector.start()  # Use the imported instance of SoundDetector
-    return 'Started fishing'
+    try:
+        print("Attempting to start detector")
+        detector.start()
+        print("Detector started successfully")
+        return 'Started fishing'
+    except Exception as e:
+        print(f"Exception occurred while starting: {e}")
+        return 'Error starting fishing', 500
 
 
 @app.route('/stop', methods=['POST'])
 def stop_fishing():
-    detector.stop()  # Use the imported instance of SoundDetector
-    return 'Stopped fishing'
+    try:
+        print("Attempting to stop detector")
+        detector.stop()  # Use the imported instance of SoundDetector
+        print("Detector stopped successfully")
+        return 'Stopped fishing'
+    except Exception as e:
+        print(f"Exception occurred while stopping: {e}")
+        return 'Error stopping fishing', 500
 
 
 def start_flask(**server_kwargs):
@@ -29,14 +41,15 @@ def start_flask(**server_kwargs):
 
     try:
         import waitress
-
         waitress.serve(app, **server_kwargs)
-    except:
+    except Exception as e:
+        print(f'Error starting server: {e}')
         app.run(**server_kwargs)
 
 
 if __name__ == "__main__":
-    # app.run() # Debug mode
+    # For debugging, uncomment the following line:
+    # app.run()  # Debug mode
 
     FlaskUI(
         app=app,
