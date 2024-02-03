@@ -7,31 +7,55 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="dark">
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <p class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <span class="fs-4 ms-3">The Elder Scrolls Online Fish Master 3000</span>
-        </p>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">The Elder Scrolls Online Fish Master 3000</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="https://dioscorides.github.io/The-Elder-Scrolls-Online-Fish-Master-3000/"
+                       class="nav-link" aria-current="page">
+                        Docs
+                        <sup>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                 class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M10 1a2 2 0 0 1 2 2v4.8a.8.8 0 0 1-1.6 0V3.5L1.7 12.3a.8.8 0 1 1-1.1-1.1L10 1.5H5.2a.8.8 0 0 1 0-1.6h4.8z"/>
+                                <path fill-rule="evenodd"
+                                      d="M15 2.5a.5.5 0 0 1 .5.5v8a2 2 0 0 1-2 2h-8a.5.5 0 0 1 0-1h8a1 1 0 0 0 1-1v-8a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                        </sup>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/Dioscorides/The-Elder-Scrolls-Online-Fish-Master-3000"
+                       class="nav-link">
+                        GitHub
+                        <sup>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                 class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M10 1a2 2 0 0 1 2 2v4.8a.8.8 0 0 1-1.6 0V3.5L1.7 12.3a.8.8 0 1 1-1.1-1.1L10 1.5H5.2a.8.8 0 0 1 0-1.6h4.8z"/>
+                                <path fill-rule="evenodd"
+                                      d="M15 2.5a.5.5 0 0 1 .5.5v8a2 2 0 0 1-2 2h-8a.5.5 0 0 1 0-1h8a1 1 0 0 0 1-1v-8a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                        </sup>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-current="page" href="#">Donate</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End: Navbar -->
 
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item">
-                <a href="https://github.com/Dioscorides/The-Elder-Scrolls-Online-Fish-Master-3000" class="nav-link">
-                    GitHub
-                    <sup>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
-                             class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                  d="M10 1a2 2 0 0 1 2 2v4.8a.8.8 0 0 1-1.6 0V3.5L1.7 12.3a.8.8 0 1 1-1.1-1.1L10 1.5H5.2a.8.8 0 0 1 0-1.6h4.8z"/>
-                            <path fill-rule="evenodd"
-                                  d="M15 2.5a.5.5 0 0 1 .5.5v8a2 2 0 0 1-2 2h-8a.5.5 0 0 1 0-1h8a1 1 0 0 0 1-1v-8a.5.5 0 0 1 .5-.5z"/>
-                        </svg>
-                    </sup>
-                </a>
-            </li>
-        </ul>
-    </header>
-</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-4 text-center mb-2">
@@ -44,7 +68,7 @@
                 <input class="form-check-input" type="checkbox" id="toggleSwitch">
                 <label class="form-check-label" for="toggleSwitch">Start/Stop Fishing</label>
             </div>
-                <small class="form-text text-body-secondary">(Shift + Alt + F)</small>
+            <small class="form-text text-body-secondary">(Shift + Alt + F)</small>
 
         </div>
     </div>
