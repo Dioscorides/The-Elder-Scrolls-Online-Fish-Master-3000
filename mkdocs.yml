@@ -17,25 +17,35 @@ theme:
   #favicon: assets/images/favicon.png
   palette:
     # Palette toggle for light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
   features:
+    - content.code.copy
+    - navigation.footer
     - navigation.instant
-    - navigation.tabs
+    - navigation.instant.progress
     - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
     - navigation.tracking
     - toc.follow
-    - navigation.top
-    - navigation.footer
-    - content.code.copy
+    - toc.integrate
 
 markdown_extensions:
   - admonition
@@ -57,9 +67,18 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - footnotes
+  - md_in_html
+
+# Plugins
+plugins:
+  - glightbox
 
 nav:
   - Home: index.md
+  - Get Started: setup.md
+  - 'How to become a Fish Master': howto.md
+  - 'About': about.md
+  - 'Credits': credits.md
 
 ## Social Media
 extra:
