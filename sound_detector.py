@@ -95,7 +95,7 @@ class SoundDetector:
         This function is called by the audio stream each time a new frame of audio data is available. It converts the
         incoming audio data into a numpy array, reshapes the resampled sound data to match the shape of the audio
         data, and performs a cross-correlation between the audio data and the resampled sound data. If the maximum
-        correlation value exceeds a predefined threshold and enough time has passed since the last detection and key
+        correlation value exceeds a predefined threshold, and enough time has passed since the last detection and key
         press, it simulates a keyboard key press, updates the time of the last detection and key press,
         and then sleeps for a predefined pause time before simulating another key press.
 
@@ -161,6 +161,12 @@ class SoundDetector:
         audio_stream.terminate()
 
     def stop(self):  # Add this method
+        """
+        Stops the audio stream and ends the detection process.
+
+        This method sets the 'is_running' attribute to False, which causes the audio stream to stop.
+        It also prints a message indicating that the detection process has ended.
+        """
         self.is_running = False
         print("Going home with today's catch")
 
